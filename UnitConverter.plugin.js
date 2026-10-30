@@ -2,7 +2,7 @@
  * @name UnitConverter
  * @author Paulnewbig2
  * @description Converts measurements in chat messages: 75°F (24 °C), 6'2" (188 cm), 10 miles (16 km), 200 lbs (91 kg) and more. Metric or imperial, in brackets or on hover. No network requests.
- * @version 1.0.0
+ * @version 1.0.1
  * @source https://github.com/Paulnewbig2/UnitConverter
  * @website https://github.com/Paulnewbig2/UnitConverter
  * @updateUrl https://raw.githubusercontent.com/Paulnewbig2/UnitConverter/main/UnitConverter.plugin.js
@@ -93,7 +93,6 @@ const labels = {
         set_language: "Language",
         language_auto: "Automatic (Discord language)",
         set_direction: "Convert to",
-        note_redraw: "Changes show up as messages are drawn again, for example after switching channels.",
         direction_auto: "Automatic: imperial for English (US), metric for everyone else",
         direction_metric: "Metric (°C, km, kg, L)",
         direction_imperial: "Imperial (°F, mi, lb, gal)",
@@ -117,7 +116,6 @@ const labels = {
         set_language: "Sprache",
         language_auto: "Automatisch (Sprache von Discord)",
         set_direction: "Umrechnen in",
-        note_redraw: "Änderungen erscheinen, sobald Nachrichten neu gezeichnet werden, etwa nach einem Kanalwechsel.",
         direction_auto: "Automatisch: imperial bei Englisch (USA), sonst metrisch",
         direction_metric: "Metrisch (°C, km, kg, L)",
         direction_imperial: "Imperial (°F, mi, lb, gal)",
@@ -336,7 +334,7 @@ module.exports = class UnitConverter {
                     shown: true,
                     settings: [
                         { type: "dropdown", id: "language", name: t.set_language, value: this.settings.language, options: [{ label: t.language_auto, value: "auto" }, ...Object.entries(languageNames).map(([value, label]) => ({ label, value }))] },
-                        { type: "dropdown", id: "direction", name: t.set_direction, note: t.note_redraw, value: this.settings.direction, options: ["auto", "metric", "imperial", "both"].map(value => ({ label: t[`direction_${value}`], value })) },
+                        { type: "dropdown", id: "direction", name: t.set_direction, value: this.settings.direction, options: ["auto", "metric", "imperial", "both"].map(value => ({ label: t[`direction_${value}`], value })) },
                         { type: "dropdown", id: "display", name: t.set_display, value: this.settings.display, options: ["inline", "tooltip"].map(value => ({ label: t[`display_${value}`], value })) },
                     ],
                 },
